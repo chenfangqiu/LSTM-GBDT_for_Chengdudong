@@ -3,9 +3,10 @@
 #### 使用说明
 
 1. 使用本实验已经训练好了的模型：直接运行main.py
-2. 自行训练：
-2.1. 运行train_lstm.py和train_gbdt.py，得到lstm_200.pt和gbr.pkl两个模型文件
-2.2. 运行main.py
+2. 自行训练：  
+
+2.1. 运行train_lstm.py和train_gbdt.py，得到lstm_200.pt和gbr.pkl两个模型文件. 
+2.2. 运行main.py. 
 
 #### 介绍
 
