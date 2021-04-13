@@ -98,7 +98,8 @@ print(loss.item()) # MSE
 print(metrics.r2_score(dataset[:73*1], y_pre[2999])) # r2_score
 
 # 作图
-#plt.plot(dataset[:73*1], 'b', label='REAL')
-#plt.plot(predict, 'r', label='LSTM')
-#plt.plot(y_pre[2999], 'g', label='GBDT')
-#plt.legend(loc='best')
+plt.plot(dataset[:73*1], 'b', label='REAL')
+plt.plot(predict, 'r', label='LSTM')
+plt.plot(y_pre[2999], 'g', label='GBDT')
+plt.legend(loc='best')
+plt.show()
