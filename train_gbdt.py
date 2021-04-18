@@ -38,6 +38,6 @@ GBDT_test_X=test_X.reshape(-1,73)
 GDBT_test_Y=test_Y.reshape(-1,1).ravel()
 
 # 模型构建和训练
-gbr = GradientBoostingRegressor(n_estimators=30,learning_rate=0.01)
+gbr = GradientBoostingRegressor(n_estimators=3000,learning_rate=0.01)
 gbr.fit(GBDT_X,GBDT_Y)
 joblib.dump(gbr, 'gbr.pkl')

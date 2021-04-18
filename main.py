@@ -86,16 +86,16 @@ x1=torch.from_numpy(np.array(predict).reshape(-1,1,73))
 x2=torch.from_numpy(np.array(dataset[:73*1]).reshape(-1,1,73))
 criterion = nn.MSELoss()
 loss = criterion(x1,x2)
-print('LSTM-MSE:'+str(loss.item())) # MSE
-print('LSTM-R2_SCORE:'+str(metrics.r2_score(dataset[:73*1], predict))) # r2_score
+print('LSTM-MSE：'+str(loss.item())) # MSE
+print('LSTM-R2_SCORE：'+str(metrics.r2_score(dataset[:73*1], predict))) # r2_score
 
 # GBDT效果评价
 x1=torch.from_numpy(np.array(y_pre[2999]).reshape(-1,1,73))
 x2=torch.from_numpy(np.array(dataset[:73*1]).reshape(-1,1,73))
 criterion = nn.MSELoss()
 loss = criterion(x1,x2)
-print('GBDT-MSE:'+str(loss.item())) # MSE
-print('GBDT-R2_SCORE'+str(metrics.r2_score(dataset[:73*1], y_pre[2999]))) # r2_score
+print('GBDT-MSE：'+str(loss.item())) # MSE
+print('GBDT-R2_SCORE：'+str(metrics.r2_score(dataset[:73*1], y_pre[2999]))) # r2_score
 
 # 作图
 plt.plot(dataset[:73*1], 'b', label='REAL')
