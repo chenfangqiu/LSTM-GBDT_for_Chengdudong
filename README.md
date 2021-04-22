@@ -1,4 +1,40 @@
-# 一堆bug的LSTM和GBDT
+# Use LSTM and GBDT to predict the the number of people entering Chengdudong Railway Station
+
+#### Useage
+1. Use the model I've trained: python main.py
+2. Train the model by yourself:
+    1. python train_lstm.py or python train_gbdt.py
+    2. get the model file lstm_200.pt and gbr.pkl
+    3. python main.py
+
+#### Introduction
+
+Forecasting theory and methods course assignments
+
+#### Train LSTM
+
+1. Import the data, remove the null value with dropna() method, and change the type to float32;
+2. Data dimensionless and normalized;
+3. Making LSTM training set:
+    1. Determine the window size. Since the target is to forecast one-day data, there are 73 15-minute passenger flow data in a day, so the window size is set to 73.
+    2. Make data sets of X and Y. Perform 4379 cycles (the number of all data minus the size of the window and then subtract 1). In the ith cycle: place the I to I +73 data of the data set in the I row of the X matrix, and place the I +74 data of the data set in the I bit of the Y vector;
+    3. Make X and Y of the training set. Remove the last week's data from X and Y;
+    4. Convert the training data into Tensor, X into Tensor of 4307 row and 1 column with 73 dimensions, Y into Tensor of 4307 row and 1 column with 1 dimension;
+4. Construction of LSTM model:
+    1. The input dimension (input_size) is 73. Other parameters can be adjusted by themselves. In this experiment, hidden_size=4,output_size=1,num_layer=2, and the other parameters remain the default values in the torch.
+    2. The first layer of the network structure is set as a two-layer LSTM, and the second layer is the full connection layer;
+    3. Set the loss function as MSE and the optimizer as ADAM, and the learning rate is 0.1;
+5. Model training, you can choose the number of iterations, 1000 times in this experiment;
+6. Forecast and evaluate.
+
+#### Train GBDT
+
+1. Same as LSTM's 1 through 3 (Tensor replaced with Array);
+2. Build GBDT regression tree model, the number of weak learners is 3000 (other number can be selected), the learning rate is 0.01, and the other parameters are consistent with the default value of Scikit-Learn;
+3. Model training;
+4. Forecast and evaluate.
+
+# 分别使用LSTM和GBDT预测成都东站进站客流
 
 #### 使用说明
 
